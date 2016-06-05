@@ -2,7 +2,7 @@
 
 
 def string_xor(s1, s2):
-    return ''.join(chr(ord(a) ^ ord(b)) for a, b in zip(s1, s2))
+    return ''.join(chr(ord(a) ^ ord(b)) for a, b in zip(s1, (s2 * (len(s1) / len(s2)))[:-(len(s2) % len(s1))]))
 
 
 def load_xor_json(json_file, xor_key):
