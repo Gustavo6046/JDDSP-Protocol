@@ -2,12 +2,14 @@
 
 
 def string_xor(s1, s2):
+    print "XOR of {} and {} is:   {}".format(s1, s2, ''.join(
+        chr(ord(a) ^ ord(b)) for a, b in zip(s1, (s2 * (len(s1) / len(s2)))[:-(len(s1) % len(s2))])))
     return ''.join(chr(ord(a) ^ ord(b)) for a, b in zip(s1, (s2 * (len(s1) / len(s2)))[:-(len(s1) % len(s2))]))
 
 
 def load_xor_json(json_file, xor_key):
     print string_xor(open(json_file).read().encode("ascii"), xor_key.encode("ascii"))
-    return json.loads(string_xor(open(json_file).read().encode("ascii"), xor_key.encode("ascii")))
+    return json.loads(string_xor(open(json_file).read(), xor_key))
 
 
 def save_xor_json(object_to_json, xor_key, json_file="default.json", append=False, **kwargs):

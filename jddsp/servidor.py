@@ -8,7 +8,7 @@ import safe_json
 ip = "127.0.0.1"
 port = 1291
 json_file = "db.spj"
-json_password = "password"
+json_password = open("password.txt").read()
 max_connections = 2
 
 
